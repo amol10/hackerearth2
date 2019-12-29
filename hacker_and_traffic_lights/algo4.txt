@@ -1,0 +1,32 @@
+sol4 optimization approach.
+
+q: is the list of all signals
+cq: is the queue of the changes needed, one entry for each signal
+
+initially, cq = []
+
+1. start
+2. go to the first signal in q
+3. make changes to make it G
+4. push change count to cq
+5. go to next signal
+6. apply changes to it if it is in the 'x' window
+7. go to 3
+
+applying changes:
+
+1. index in q: i
+2. add up the changes for indices i-x to i-1 (x or x-1?) : ach
+3. apply ach%3 to q[i]
+
+total changes will be the total of all the entries in cq
+
+tch (total changes)
+wch (total window changes)
+
+maintain a wch var, as you push into cq, add to it
+as you pop from cq, subtract from it
+
+var tch, as you pop from cq, add to it
+in the end, add wch to it and print it
+
